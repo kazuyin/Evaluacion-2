@@ -127,7 +127,7 @@
             alert("Ingresa solo numeros en el cuadro Cantidad.");
             document.getElementById("can").value.focus();
             }
-      nomina.push(v1);
+      nomina.push(v1); //se agregan los datos al arreglo
       nomina2.push(v2);
       nomina3.push(v3);
       nomina4.push(v4);
@@ -174,7 +174,7 @@
             for (var i = 0; i < nomina.length; i++) {
                 if(nombreResta == nomina[i] && nomina4[i] >= sacar){
                   abc= parseInt(nomina4[i])- parseInt(sacar);
-                  nomina4[i]= parseInt(abc);
+                  nomina4[i]= parseInt(abc);//pendiente explicar mas detalle
                 }      
             }
             mostrar();
@@ -189,7 +189,7 @@
             let nombreSuma = document.getElementById("nombreSuma").value;
             while (!/^[a-z]+$/.test(nombreSuma)) {
             alert("Ingresa solo texto en el cuadro Nombre item a restar cantidad.");
-            document.getElementById("pro").value.focus();
+            document.getElementById("nombreSuma").value.focus();
             }
 
             let sumar =parseInt(document.getElementById("sumar").value);
@@ -200,7 +200,7 @@
  
             var abc2=0;
             for (var i = 0; i < nomina.length ; i++) {
-                if(nombreSuma == nomina[i] && nomina4[i] <= sumar){
+                if(nombreSuma == nomina[i] && nomina4[i] >= sumar){
                   abc2= parseInt(nomina4[i])+ parseInt(sumar);
                   nomina4[i]= parseInt(abc2);
                 }    
