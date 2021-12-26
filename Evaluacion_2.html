@@ -168,7 +168,7 @@
               }else{
                 alert("El numero ingresado no debe superar el de stock");
               }
-            document.getElementById("val").value.focus();
+            document.getElementById("sacar").value.focus();
             }    
             var abc=0;
             for (var i = 0; i < nomina.length; i++) {
@@ -178,9 +178,13 @@
                 }      
             }
             mostrar();
-            valorMercancia();
-//Funcion quitar cantidad del producto
+      
+            if (chequeador>0) {//aqui se puede ver que al declarar una variable globar como var, se puede usar en otras funciones sin problemas
+              valorMercancia();
+            }
     } 
+
+//Funcion quitar cantidad del producto    
     function agregar () {
             let nombreSuma = document.getElementById("nombreSuma").value;
             while (!/^[a-z]+$/.test(nombreSuma)) {
@@ -191,22 +195,27 @@
             let sumar =parseInt(document.getElementById("sumar").value);
             while (!/^[0-9]+$/.test(sumar)) {
             alert("Ingresa solo numeros en el cuadro Cantidad a sumar .");
-            document.getElementById("val").value.focus();
+            document.getElementById("sumar").value.focus();
             }
-
+ 
             var abc2=0;
-            for (var i = 0; i < nomina.length; i++) {
-                if(nombreSuma == nomina[i] && nomina4[i] >= sumar){
+            for (var i = 0; i < nomina.length ; i++) {
+                if(nombreSuma == nomina[i] && nomina4[i] <= sumar){
                   abc2= parseInt(nomina4[i])+ parseInt(sumar);
                   nomina4[i]= parseInt(abc2);
-                }      
+                }    
             }
             mostrar();
-            valorMercancia();
+            if (chequeador>0) {
+              valorMercancia();
+            }
+            
     } 
     
 //funcion Valor total y el iva 
     function valorMercancia() {
+      
+      var chequeador = 0
       let iva = 0
       tmerc = 0;
       sum2 = 0;
@@ -215,7 +224,10 @@
         sum2 += nomina4[i]
       }
       iva = tmerc * 1.19;
-      document.getElementById("merca").innerHTML =  "En bodega hay un total de: " + sum2 + " articulos. <br> El valor total neto de la mercancia de la bodega de Juan es: " + tmerc+ " pesos <br> El valor total con IVA de la mercancia de la bodega de Juan es: "+iva.toFixed()+" pesos";//sin valor asume como 0 decimales
+      document.getElementById("merca").innerHTML =  "<table border='1'> <tr> <td> Valor total Neto: " + tmerc + " pesos </tr> <tr> <td>Valor total + IVA : " + iva.toFixed() + " pesos </td> </tr> <tr> <td>Total items Bodega : " + sum2 + " items </td> </tr> </table>"
+      
+      chequeador++;
+      /*"En bodega hay un total de: " + sum2 + " articulos. <br> El valor total neto de la mercancia de la bodega de Juan es: " + tmerc+ " pesos <br> El valor total con IVA de la mercancia de la bodega de Juan es: "+iva.toFixed()+" pesos";//sin valor asume como 0 decimales*/
     }
    
   </script>
