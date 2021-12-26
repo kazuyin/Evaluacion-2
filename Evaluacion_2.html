@@ -157,16 +157,19 @@
 //Funcion quitar cantidad del producto
     function quitar () {
             let nombreResta = document.getElementById("nombreResta").value;
-            while (!/^[a-z]+$/.test(nombreResta) && ) {
+            while (!/^[a-z]+$/.test(nombreResta)) {
             alert("Ingresa solo texto en el cuadro Nombre item a restar cantidad.");
             document.getElementById("pro").value.focus();
             }
             let sacar =parseInt(document.getElementById("sacar").value);
-            while (!/^[0-9]+$/.test(sacar)) {
-            alert("Ingresa solo numeros en el cuadro Cantidad a restar .");
+            while (!/^[0-9]+$/.test(sacar) || sacar>nomina4) {
+              if (!/^[0-9]+$/.test(sacar)) {
+                alert("Ingresa solo numeros en el cuadro Cantidad a restar");
+              }else{
+                alert("El numero ingresado no debe superar el de stock");
+              }
             document.getElementById("val").value.focus();
-            }
-            
+            }    
             var abc=0;
             for (var i = 0; i < nomina.length; i++) {
                 if(nombreResta == nomina[i] && nomina4[i] >= sacar){
@@ -175,6 +178,8 @@
                 }      
             }
             mostrar();
+            valorMercancia();
+//Funcion quitar cantidad del producto
     } 
     function agregar () {
             let nombreSuma = document.getElementById("nombreSuma").value;
@@ -197,6 +202,7 @@
                 }      
             }
             mostrar();
+            valorMercancia();
     } 
     
 //funcion Valor total y el iva 
@@ -209,7 +215,9 @@
         sum2 += nomina4[i]
       }
       iva = tmerc * 1.19;
-      document.getElementById("merca").innerHTML =  "La cantidad total de productos en bodega es:" + sum2 + "y el valor total de la mercancia de la bodega de Juan es: " + tmerc+"      "+ " Y con IVA: "+iva;
+      document.getElementById("merca").innerHTML =  
+      
+      /*"En bodega hay un total de: " + sum2 + " articulos. <br> El valor total neto de la mercancia de la bodega de Juan es: " + tmerc+ " pesos <br> El valor total con IVA de la mercancia de la bodega de Juan es: "+iva.toFixed()+" pesos";//sin valor asume como 0 decimales
     }
    
   </script>
