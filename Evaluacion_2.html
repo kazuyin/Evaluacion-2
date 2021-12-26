@@ -157,12 +157,12 @@
 //Funcion quitar cantidad del producto
     function quitar () {
             let nombreResta = document.getElementById("nombreResta").value;
-            while (!/^[a-z]+$/.test(nombreResta)) {
+            while (!/^[a-z]+$/.test(nombreResta) && ) {
             alert("Ingresa solo texto en el cuadro Nombre item a restar cantidad.");
             document.getElementById("pro").value.focus();
             }
             let sacar =parseInt(document.getElementById("sacar").value);
-            while (!/^[0-9]+$/.test(v3)) {
+            while (!/^[0-9]+$/.test(sacar)) {
             alert("Ingresa solo numeros en el cuadro Cantidad a restar .");
             document.getElementById("val").value.focus();
             }
@@ -184,7 +184,7 @@
             }
 
             let sumar =parseInt(document.getElementById("sumar").value);
-            while (!/^[0-9]+$/.test(v3)) {
+            while (!/^[0-9]+$/.test(sumar)) {
             alert("Ingresa solo numeros en el cuadro Cantidad a sumar .");
             document.getElementById("val").value.focus();
             }
