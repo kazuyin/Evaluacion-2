@@ -166,8 +166,8 @@
             }
             let sacar =parseInt(document.getElementById("sacar").value);
             while (!/^[0-9]+$/.test(sacar) || sacar>cantidad) {
-              alert(cantidad)
-              if (!/^[0-9]+$/.test(sacar)) {
+
+              if (sacar>cantidad) {
                 alert("Ingresa solo numeros en el cuadro Cantidad a restar");
               }else{
                 alert("El numero ingresado no debe superar el de stock");
@@ -178,7 +178,7 @@
             for (var i = 0; i < nombre.length; i++) {
                 if(nombreResta == nombre[i] && cantidad[i] >= sacar){
                   resta= parseInt(cantidad[i])- parseInt(sacar);
-                  cantidad[i]= parseInt(resta);//pendiente explicar mas detalle
+                  cantidad[i]= parseInt(resta);
                 }      
             }
             mostrar();
@@ -199,11 +199,11 @@
             document.getElementById("sumar").value.focus();
             }
  
-            var abc2=0;
+            var sum=0;
             for (var i = 0; i < nombre.length ; i++) {
                 if(nombreSuma == nombre[i] && cantidad[i] >= sumar){
-                  abc2= parseInt(cantidad[i])+ parseInt(sumar);
-                  cantidad[i]= parseInt(abc2);
+                  sum= parseInt(cantidad[i])+ parseInt(sumar);
+                  cantidad[i]= parseInt(sum);
                 }    
             }
             mostrar();
